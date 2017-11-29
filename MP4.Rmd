@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(mdsr)
 library(RMySQL)
 db <- dbConnect_scidb(dbname = "imdb")
-db %>%
+tbl_1 <- db %>%
   dbGetQuery("SELECT * FROM aka_title
 join imdb.keyword on keyword.phonetic_code = aka_title.phonetic_code
 where keyword.phonetic_code = 'W6536' or keyword.phonetic_code = 'C5363' or keyword.phonetic_code")
