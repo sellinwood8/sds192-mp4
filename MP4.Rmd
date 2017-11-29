@@ -9,4 +9,11 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Yeeewwwwww
+```{r}
+library(mdsr)
+library(RMySQL)
+db <- dbConnect_scidb(dbname = "imdb")
+db %>%
+  dbGetQuery("SELECT * FROM kind_type;")
+```
+
