@@ -18,7 +18,7 @@ library(RMySQL)
 ```{r}
 db <- dbConnect_scidb(dbname = "imdb")
 tbl_1 <- db %>%
-  dbGetQuery("SELECT title, production_year FROM aka_title
+  dbGetQuery("SELECT DISTINCT title, production_year FROM aka_title
 join imdb.keyword on keyword.phonetic_code = aka_title.phonetic_code
 where keyword.phonetic_code = 'W6536' or keyword.phonetic_code = 'C5363' or keyword.phonetic_code")
 ```
@@ -27,7 +27,7 @@ where keyword.phonetic_code = 'W6536' or keyword.phonetic_code = 'C5363' or keyw
 tbl_1 %>%
   filter(production_year > 1900) %>%
   group_by(production_year) %>%
-  summarize("num_movies" = n()) %>%
+  summarize("num_movies" = n())  %>%
   ggplot(aes(x = production_year, y = num_movies)) + 
   geom_point() + 
   geom_smooth()
