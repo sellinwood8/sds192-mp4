@@ -18,10 +18,12 @@ library(RMySQL)
 ```{r}
 db <- dbConnect_scidb(dbname = "imdb")
 tbl_1 <- db %>%
-  dbGetQuery("SELECT DISTINCT title, production_year 
-FROM aka_title
-JOIN imdb.keyword on keyword.phonetic_code = aka_title.phonetic_code
-WHERE keyword.phonetic_code = 'W6536' OR keyword.phonetic_code = 'C5363' OR keyword.phonetic_code = 'T6251' OR keyword.phonetic_code = 'T623' OR keyword.phonetic_code = 'T625'")
+  dbGetQuery("SELECT DISTINCT t1.movie_id, t1.title, t1.production_year, t2.movie_id
+FROM (SELECT DISTINCT aka_title.movie_id, title, production_year FROM aka_title) AS t1
+JOIN (SELECT DISTINCT movie_keyword.movie_id FROM movie_keyword JOIN imdb.keyword ON keyword.id = movie_keyword.keyword_id 
+	WHERE keyword.id = 1149 OR keyword.id = 4232
+	OR keyword.id = 4671 OR keyword.id = 4672 OR keyword.id = 4669) AS t2
+ON t1.movie_id = t2.movie_id;")
 ```
 
 ```{r}
