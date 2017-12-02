@@ -27,6 +27,7 @@ ON t1.movie_id = t2.movie_id;")
 ```
 
 ```{r}
+tbl_1 <- tbl_1[, !duplicated(colnames(tbl_1))]
 tbl_1 %>%
   filter(production_year > 1900, production_year < 2017) %>%
   group_by(production_year) %>%
