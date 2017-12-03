@@ -27,17 +27,32 @@ ON t1.movie_id = t2.movie_id;")
 ```
 
 ```{r}
-tbl_1 <- tbl_1[!duplicated(tbl_1$movie_id), (colnames(tbl_1))]
-tbl_1 %>%
-  filter(production_year > 1900, production_year < 2017) %>%
+tbl_2 <- db %>%
+  dbGetQuery("SELECT DISTINCT movie_id, production_year
+             FROM aka_title") %>%
   group_by(production_year) %>%
-  summarize("num_movies" = n())  %>%
-  ggplot(aes(x = production_year, y = num_movies)) + 
+  summarize("total_num_movies" = n())
+```
+
+```{r}
+tbl_3 <- tbl_1 %>%
+  left_join(tbl_2, by = "production_year")
+```
+
+
+```{r}
+tbl_3 <- tbl_3[!duplicated(tbl_3$movie_id), (colnames(tbl_3))]
+tbl_3 %>%
+  filter(production_year > 1937, production_year < 2017) %>%
+  group_by(production_year) %>%
+  summarize("num_terror_movies" = n(),
+            "total_num_movies" = mean(total_num_movies),
+            "num_terror_controlled" = num_terror_movies/total_num_movies)  %>%
+  ggplot(aes(x = production_year, y = num_terror_controlled)) + 
   geom_point() + 
   geom_line() +
-  geom_smooth() +
   scale_x_continuous(breaks=seq(1900,2017,20)) +
-  ggtitle("Movies Tagged as 'Terrorist' from 1900-2017") +
+  ggtitle("Movies Tagged as 'Terrorist' from 1937-2017") +
   labs(x="Year",y="Number of Movies")
 ```
 
