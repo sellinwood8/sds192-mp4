@@ -51,6 +51,7 @@ tbl_3 %>%
   geom_line() +
   scale_x_continuous(breaks=seq(1900,2017,20)) +
   ggtitle("Percentage of Movies Tagged as 'Terrorist' from 1937-2017") +
-  labs(x="Year",y="Percentage of Movies")
+  labs(x="Year",y="Percentage of Movies") +
+  scale_y_continuous(labels = scales::percent)
 ```
 
