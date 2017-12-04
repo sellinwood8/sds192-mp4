@@ -14,7 +14,6 @@ knitr::opts_chunk$set(echo = TRUE)
 library(mdsr)
 library(tidyverse)
 library(RMySQL)
-library(devtools)
 ```
 
 ```{r}
