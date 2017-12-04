@@ -1,7 +1,7 @@
 ---
 title: "MP4"
 author: "Sam Ellinwood, Haley McAtee, Sam Schneider"
-date: "11/28/2017"
+date: "12/14/2017"
 output: html_document
 ---
 
@@ -95,8 +95,8 @@ wordcountaddin:::text_stats()
 
 **The Fear of Terrorism May Be Too Much For Hollywood **
 
-The impact of horrifying global terrorist attacks is manifesting itself in the Hollywood. Although subject matter of the movie industry has traditionally reflected the feelings of a nation, the fear of these horrendous attacks may hit too close to home for Hollywood. The movie industry may be able to provide insight into the vast societal impact of terrorism as a whole.  
+The impact of horrifying global terrorist attacks is manifesting itself in Hollywood. Although the subject matter of Hollywood movies has traditionally reflected the feelings of a nation, the fear of these horrendous attacks may hit too close to home. The movie industry may be able to provide insight into the vast societal impact of terrorism as a whole.  
 
-	The ability of a movie to connect with its audience hinges on its ability to depict meaningful subject matter that hits the audience close to home. Movie producers will aim to create movies that reflect the feelings of their market at a given time. This suggests that an event such as a terrorist attack that strikes fear into a nation would spur the creation of movies with similar subject matter, invoking a cathartic reaction. While this has traditionally been the case for smaller scale attacks, there appears to have been a shift in the post 9/11 world. In the wake of the World Trade Center attack, the amount of movies related to terrorism as a share of total movies made has fallen by roughly 50%. This fall suggests that the scale and cultural impact of these attacks was so large that the cathartic value of movies related to terrorism is outweighed by the pain of reliving that fateful day in 2001. On a larger scale, this trend is reflective of the deep societal impact felt from the rise in global terror. 
+A movie's potential to connect with its audience hinges on its ability to depict a meaningful subject matter that hits the audience close to home. Movie producers aim to create movies that reflect the feelings of the general public at a given time. This suggests that an event such as a terrorist attack that strikes fear into a nation would spur the creation of movies with similar subject matter, invoking a cathartic reaction. While this has traditionally been the case for smaller scale attacks in looking at the percentage of movies tagged as 'terrorist' in the IMDB database, there appears to have been a shift in the post 9/11 world. In the wake of the World Trade Center attack, the amount of movies related to terrorism as a share of total movies made has fallen by roughly 50%. This fall suggests that the scale and cultural impact of these attacks was so large that the cathartic value of movies related to terrorism is outweighed by the pain of reliving that fateful day in 2001. On a larger scale, this trend reflects the deep societal impact felt from the rise in global terror. 
 
 
