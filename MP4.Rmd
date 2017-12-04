@@ -10,12 +10,15 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
+#Load packages
 library(mdsr)
 library(tidyverse)
 library(RMySQL)
+library(devtools)
 ```
 
 ```{r}
+#Create a table with movies with terrorist tags
 db <- dbConnect_scidb(dbname = "imdb")
 tbl_1 <- db %>%
   dbGetQuery("SELECT DISTINCT t1.movie_id, t1.title, t1.production_year, t2.movie_id
@@ -27,6 +30,7 @@ ON t1.movie_id = t2.movie_id;")
 ```
 
 ```{r}
+#Create a table of all movies
 tbl_2 <- db %>%
   dbGetQuery("SELECT DISTINCT movie_id, production_year
              FROM aka_title") %>%
@@ -35,24 +39,28 @@ tbl_2 <- db %>%
 ```
 
 ```{r}
+#Join the first two tables
 tbl_3 <- tbl_1[!duplicated(tbl_1$movie_id), (colnames(tbl_1))] %>%
   left_join(tbl_2, by = "production_year")
 ```
 
 
 ```{r, warning = FALSE}
+#Summarize the final data table
 tbl_3 %>%
   filter(production_year > 1936, production_year < 2016) %>%
   group_by(production_year) %>%
   summarize("num_terror_movies" = n(),
             "total_num_movies" = mean(total_num_movies),
             "num_terror_controlled" = num_terror_movies/total_num_movies)  %>%
+  #Create our graphic
   ggplot(aes(x = production_year, y = num_terror_controlled)) + 
   geom_line() +
   scale_x_continuous(breaks=seq(1900,2017,20)) +
   ggtitle("Percentage of Movies Tagged as 'Terrorist' from 1936-2016") +
   labs(x="Year",y="Percentage of Movies") +
-  scale_y_continuous(labels = scales::percent) + 
+  scale_y_continuous(labels = scales::percent) +
+  #Adding points referencing important dates/events
   annotate("point", shape = 21, x = 2001, y = .0064, color = "black", fill = "red", size = 2) +
   annotate("segment", shape = 21, x = 2001, xend = 2001, y = .0064, yend = .0033, color = "red") +
   annotate("text", color = "black", label = "9/11 Attack", x = 2004, y = .003) +
@@ -75,6 +83,14 @@ tbl_3 %>%
   annotate("segment", shape = 21, x = 1985, xend = 1985, y = .0025, yend = .0060, color = "red") +
   annotate("text", color = "black", label = "Air India Bombing", x = 1990, y = .0023) 
 ```
+
+```{r}
+#Word count
+devtools::install_github("benmarwick/wordcountaddin", 
+                         type = "source", dependencies = TRUE)
+wordcountaddin:::text_stats()
+```
+
 
 
 **The Fear of Terrorism May Be Too Much For Hollywood **
