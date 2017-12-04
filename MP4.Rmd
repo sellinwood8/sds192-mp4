@@ -84,14 +84,6 @@ tbl_3 %>%
   annotate("text", color = "black", label = "Air India Bombing", x = 1990, y = .0023) 
 ```
 
-```{r}
-#Word count
-devtools::install_github("benmarwick/wordcountaddin", 
-                         type = "source", dependencies = TRUE)
-wordcountaddin:::text_stats()
-```
-
-
 
 **The Fear of Terrorism May Be Too Much For Hollywood **
 
