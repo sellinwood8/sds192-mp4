@@ -40,7 +40,7 @@ tbl_3 <- tbl_1[!duplicated(tbl_1$movie_id), (colnames(tbl_1))] %>%
 ```
 
 
-```{r}
+```{r, warning = FALSE}
 tbl_3 %>%
   filter(production_year > 1937, production_year < 2017) %>%
   group_by(production_year) %>%
