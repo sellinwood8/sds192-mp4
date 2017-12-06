@@ -3,6 +3,7 @@ title: "MP4"
 author: "Sam Ellinwood, Haley McAtee, Sam Schneider"
 date: "12/14/2017"
 output: html_document
+theme: journal
 ---
 
 ```{r setup, include=FALSE}
