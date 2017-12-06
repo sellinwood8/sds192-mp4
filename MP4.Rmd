@@ -2,22 +2,23 @@
 title: "MP4"
 author: "Sam Ellinwood, Haley McAtee, Sam Schneider"
 date: "12/14/2017"
-output: html_document
-theme: journal
+output: 
+  html_document:
+    code_folding: hide
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r}
+```{r, warning = FALSE, message = FALSE}
 #Load packages
 library(mdsr)
 library(tidyverse)
 library(RMySQL)
 ```
 
-```{r}
+```{r, warning = FALSE, message = FALSE}
 #Create a table with movies with terrorist tags
 db <- dbConnect_scidb(dbname = "imdb")
 tbl_1 <- db %>%
@@ -29,7 +30,7 @@ JOIN (SELECT DISTINCT movie_keyword.movie_id FROM movie_keyword JOIN imdb.keywor
 ON t1.movie_id = t2.movie_id;")
 ```
 
-```{r}
+```{r, warning = FALSE, message = FALSE}
 #Create a table of all movies
 tbl_2 <- db %>%
   dbGetQuery("SELECT DISTINCT movie_id, production_year
@@ -38,14 +39,14 @@ tbl_2 <- db %>%
   summarize("total_num_movies" = n())
 ```
 
-```{r}
+```{r, warning = FALSE, message = FALSE}
 #Join the first two tables
 tbl_3 <- tbl_1[!duplicated(tbl_1$movie_id), (colnames(tbl_1))] %>%
   left_join(tbl_2, by = "production_year")
 ```
 
 
-```{r, warning = FALSE}
+```{r, warning = FALSE, message = FALSE}
 #Summarize the final data table
 tbl_3 %>%
   filter(production_year > 1936, production_year < 2016) %>%
