@@ -17,17 +17,39 @@ library(mdsr)
 library(tidyverse)
 library(RMySQL)
 ```
+```{r}
+
+```
 
 ```{r, warning = FALSE, message = FALSE}
 #Create a table with movies with terrorist tags
 db <- dbConnect_scidb(dbname = "imdb")
 tbl_1 <- db %>%
   dbGetQuery("SELECT DISTINCT t1.movie_id, t1.title, t1.production_year, t2.movie_id
-FROM (SELECT DISTINCT aka_title.movie_id, title, production_year FROM aka_title) AS t1
+FROM (SELECT DISTINCT aka_title.movie_id, title, production_year FROM aka_title WHERE kind_id = 1) AS t1
 JOIN (SELECT DISTINCT movie_keyword.movie_id FROM movie_keyword JOIN imdb.keyword ON keyword.id = movie_keyword.keyword_id 
 	WHERE keyword.id = 1149 OR keyword.id = 4232
 	OR keyword.id = 4671 OR keyword.id = 4672 OR keyword.id = 4669) AS t2
 ON t1.movie_id = t2.movie_id;")
+```
+
+```
+```{r}
+#Selecting all movies made in the USA
+
+db2 <- dbConnect_scidb(dbname = "imdb")
+tbl_5 <- db2 %>%
+  dbGetQuery("
+              SELECT * FROM imdb.movie_info
+              where info = 'USA';")
+```
+
+```{r}
+#Joining all movies made in the USA that also have terrorist tags
+
+tbl_1 %>%
+  inner_join(tbl_5, by = "movie_id")
+
 ```
 
 ```{r, warning = FALSE, message = FALSE}
