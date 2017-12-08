@@ -80,27 +80,17 @@ tbl_3 %>%
   labs(x="Year",y="Percentage of Movies") +
   scale_y_continuous(labels = scales::percent) +
   #Adding points referencing important dates/events
-  annotate("point", shape = 21, x = 2001, y = .0064, color = "black", fill = "red", size = 2) +
-  annotate("segment", shape = 21, x = 2001, xend = 2001, y = .0064, yend = .0033, color = "red") +
-  annotate("text", color = "black", label = "9/11 Attack", x = 2004, y = .003) +
+  annotate("segment", shape = 21, x = 2001, xend = 2001, y = .01004, yend = .00993, color = "red") +
+  annotate("text", color = "black", label = "9/11 Attack", x = 2004, y = .006) +
   
-  annotate("point", shape = 21, x = 1995, y = .0066, color = "black", fill = "red", size = 2) +
-  annotate("segment", shape = 21, x = 1995, xend = 1995, y = .0066, yend = .0041, color = "red") +
+  annotate("segment", shape = 21, x = 1995, xend = 1995, y = .01146, yend = .0041, color = "red") +
   annotate("text", color = "black", label = "OKC Bombing", x = 1993, y = .0038) +
   
-  annotate("point", shape = 21, x = 1970, y = .0020, color = "black", fill = "red", size = 2) +
-  annotate("segment", shape = 21, x = 1970, xend = 1970, y = .0020, yend = .0068, color = "red") +
+  
+  annotate("segment", shape = 21, x = 1970, xend = 1970, y = .00231, yend = .0068, color = "red") +
   annotate("text", color = "black", label = "Beginning of", x = 1970, y = .0088) +
   annotate("text", color = "black", label = "'Golden Age'", x = 1970, y = .008) +
-  annotate("text", color = "black", label = "of Terrorism", x = 1970, y = .0072) +
-  
-  annotate("point", shape = 21, x = 1988, y = .0067, color = "black", fill = "red", size = 2) +
-  annotate("segment", shape = 21, x = 1988, xend = 1988, y = .01, yend = .0067, color = "red") +
-  annotate("text", color = "black", label = "Lockerbie Bombing", x = 1986, y = .0103) +
-  
-  annotate("point", shape = 21, x = 1985, y = .0060, color = "black", fill = "red", size = 2) +
-  annotate("segment", shape = 21, x = 1985, xend = 1985, y = .0025, yend = .0060, color = "red") +
-  annotate("text", color = "black", label = "Air India Bombing", x = 1990, y = .0023) 
+  annotate("text", color = "black", label = "of Terrorism", x = 1970, y = .0072)
 ```
 
 
