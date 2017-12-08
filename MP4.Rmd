@@ -1,5 +1,5 @@
 ---
-title: "MP4"
+title: "The Fear of Terrorism May Be Too Much For Hollywood"
 author: "Sam Ellinwood, Haley McAtee, Sam Schneider"
 date: "12/14/2017"
 output: 
@@ -62,6 +62,20 @@ tbl_3 <- tbl_1[!duplicated(tbl_1$movie_id), (colnames(tbl_1))] %>%
   left_join(tbl_2, by = "production_year")
 ```
 
+Terrorism headlines the news all too often recently. New York, Orlando, Las Vegas are all places sourced from a more extensive list of American cities and towns that have recently fallen victim to acts of hatred and terror. The repercussions of such events burden the nation, leaving a trail of despair and helplessness in their wake.
+ 
+Just several months ago, a man used a rented Home Depot truck to inflict chaos on a street in Manhattan, killing eight people and wounding eleven as an act of terror. In 2015, a pair of shooters amassed over 24 casualties at a holiday party held at the Inland Regional Center, a service facility for people with disabilities and special needs in San Bernardino, California. On September 11, 2001, Jihadists attacked the U.S. from within for the first time. 
+ 
+Frequent acts of terrorism have become a disturbing reality of our nation and our world. The impacts of these events are pervasive; they transcend race, gender, class, and nationality and are even manifesting themselves in Hollywood. Although the subject matter of Hollywood movies has traditionally reflected the feelings of a nation, the fear of these horrendous attacks may hit too close to home. The movie industry may be able to provide insight into the vast societal impact of terrorism as a whole. 
+ 
+--
+
+Much like all forms of art, movies strongly reflect the society in which they are produced. “Movies are a form of communication,” states Tom Sherak, President of the Academy of Motion Picture Arts and Sciences. “That communication, those stories, come from societies – not just where society is currently and what it’s doing now, but where society has been.”
+
+Hollywood tends to glorify and emphasize certain tropes, such as graphic and political violence, foreign settings, and demonization of foreign threats in order to boost profits. Many believe this form of glorification can have effects in its own right. Following the tragic shooting that occurred in Orlando last year, writer-director Michael Showalter wrote a guest column for Variety.com, passionately questioning the role of Hollywood in producing violence. “I do believe that Hollywood films…contribute to an overall culture of violence that affects our society in negative ways.” He adds, “As filmmakers, where do we draw our own lines? What kind of messages do we want to send?”
+ 
+Given the prevalence of terrorism and threats of terror at home and abroad over the past several decades, we began to wonder how the movie industry responds to the severity and frequency of terrorist attacks.
+
 
 ```{r, warning = FALSE, message = FALSE}
 #Summarize the final data table
@@ -86,16 +100,34 @@ tbl_3 %>%
   annotate("segment", shape = 21, x = 1995, xend = 1995, y = .01146, yend = .0041, color = "red") +
   annotate("text", color = "black", label = "OKC Bombing", x = 1993, y = .0038) +
   
-  
   annotate("segment", shape = 21, x = 1970, xend = 1970, y = .00231, yend = .0068, color = "red") +
   annotate("text", color = "black", label = "Beginning of", x = 1970, y = .0088) +
   annotate("text", color = "black", label = "'Golden Age'", x = 1970, y = .008) +
   annotate("text", color = "black", label = "of Terrorism", x = 1970, y = .0072)
 ```
 
+In order to investigate this question, we used data sourced from IMDb that contains all movies held within the database. From this data, we created a list of all movies tagged with the IMDb keywords: “terrorism,” “terrorist,” “terrorist group,” “terrorist plot,” and “terror attack” that were produced between 1936-2016 in the United States.
+ 
+We plotted these movies as a percentage of the total number of movies produced in a given year over time. Notably, this percentage fluctuates around 0.2% from 1936 through the 1960s, and then shows a significant increase beginning in the 1970s, peaking at a value of over 1.1% just several years prior to 9/11. Following 9/11, the trend reverses; terrorist-themed movie production in the United States decreases sharply.
+ 
+--
 
-**The Fear of Terrorism May Be Too Much For Hollywood **
+9/11 was arguably the most significant terrorist attack in United States’ history. Unsurprisingly, this date marked a turning point for the nation and interestingly the movie industry in particular.
 
-The impact of horrifying global terrorist attacks is manifesting itself in Hollywood. Although the subject matter of Hollywood movies has traditionally reflected the feelings of a nation, the fear of these horrendous attacks may hit too close to home. The movie industry may be able to provide insight into the vast societal impact of terrorism as a whole.  
+Prior to 9/11, the film industry produced terrorism-themed movies at an increasing rate. This trend correlated with a growing national infatuation with motifs such as “the political terrorist” and ‘“the terrorist within” in light of the Cold War. The domestic fear of totalian Soviets infiltrating American agencies gave Hollywood a compelling storyline in the Cold War terrorist attempting to destroy the American way of life. This “terrorist from within,” theme continued into the 1980’s in association with Reagan’s anti-terror doctrines. The fear of mass catastrophe and nuclear terrorism captivated the nation. 
+ 
+Pivoting from the Cold War era’s definition of terrorism, Hollywood’s definition of terrorism evolved to broadened the term to address more international events. The terrorist enemy became political, revolutionary, and unafraid to use random violence such as bombings to destabilize authority. Following the State of Israel in the 1967 war, terrorism became a force of resistance and anti-western protest and the target became innocent civilians and movies fed off these real terrorist incidents and international conflicts. The modern cinema of terrorism grew alongside high-profile international terrorist acts in early 1970s such as the 1970 Popular Front for the Liberation of Palestine (PFLP) hijacking, 1972 Munich massacre, 1976 Entebbe plane hijacking, and 1979 Iranian Revolution and hostage crisis. More and more Hollywood terrorist movies reflected these hijacking and hostage-taking themes.  
 
-A movie's potential to connect with its audience hinges on its ability to depict a meaningful subject matter that hits the audience close to home. Movie producers aim to create movies that reflect the feelings of the general public at a given time. This suggests that an event such as a terrorist attack that strikes fear into a nation would spur the creation of movies with similar subject matter, invoking a cathartic reaction. While this has traditionally been the case for smaller scale attacks in looking at the percentage of movies tagged as 'terrorist' in the IMDB database, there appears to have been a shift in the post 9/11 world. In the wake of the World Trade Center attack, the amount of movies related to terrorism as a share of total movies made has fallen by roughly 50%. This fall suggests that the scale and cultural impact of these attacks was so large that the cathartic value of movies related to terrorism is outweighed by the pain of reliving that fateful day in 2001. On a larger scale, this trend reflects the deep societal impact felt from the rise in global terror. 
+In the contemporary cinema immediately prior to 9/11, the definition of modern terrorist films changed yet again; Hollywood characterized the terrorist figure and manipulated the threat that they posed through dramatizing the concept of threatening the right to U.S. self-determination. In the post- Cold War era of the 1990s, a fear of new technologies such as suitcase bombs used against America at home emerged, which movie experts argue is a direct result of the breaking up of the Soviet Union and fear that their arms could be sold on the market. This theme emerged in film and in the late 1990s, movies leading up to 9/11 represented large-scale disaster and worst-case scenarios on American soil. 
+
+--
+
+And then Jihadists destroyed the World Trade Center, bringing terrorism too close to home. President Bush announced his “with us or against us” rhetoric, and suddenly the terrorism became taboo subject in the world of entertainment. Accordingly, the film industry halted the production terrorist-themed movies. 
+
+As a result, many film producers altered plans for films they were working on. A slew of action films were affected by rewrites and reshoots in order to tone down allusions to terrorism. An airplane hijacking scene was cut out of Arnold Schwarzenegger's film “Collateral Damage,” which was delayed four months following the 9/11 attacks. Any references to the Twin Towers were also cut from many films including “Spider-Man” and “Sidewalks of New York.”
+
+We’ve seen this sort of response from Hollywood before; the reaction to 9/11 parallels that to the Vietnam War. For almost 40 years following the conclusion of the war, the American entertainment industry steered clear of the topic.
+
+--
+
+A movie's potential to connect with its audience hinges on its ability to depict a meaningful subject matter that hits the audience close to home. Movie producers aim to create movies that reflect the feelings of the general public. An event such as a terrorist attack that strikes fear into a nation would spur the creation of movies with similar subject matter, invoking a cathartic reaction. While pre-9/11 America found an obsession in tropes of terrorism in light of the Cold War and terrorist attacks in the Middle East in the 1970s, there appears to have been a shift in the post 9/11 world. In the wake of the World Trade Center attack, terrorism-themed film production sharply decreased. This fall suggests that these attacks were so scaring to Americans that terrorism became too inappropriate Hollywood to pursue. 
