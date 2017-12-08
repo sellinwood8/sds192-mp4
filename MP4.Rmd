@@ -17,26 +17,21 @@ library(mdsr)
 library(tidyverse)
 library(RMySQL)
 ```
-```{r}
 
-```
 
 ```{r, warning = FALSE, message = FALSE}
 #Create a table with movies with terrorist tags
 db <- dbConnect_scidb(dbname = "imdb")
 tbl_1 <- db %>%
-  dbGetQuery("SELECT DISTINCT t1.movie_id, t1.title, t1.production_year, t2.movie_id
-FROM (SELECT DISTINCT aka_title.movie_id, title, production_year FROM aka_title WHERE kind_id = 1) AS t1
+  dbGetQuery("SELECT DISTINCT t1.id, t1.title, t1.production_year, t2.movie_id
+FROM (SELECT DISTINCT id, title, production_year,kind_id FROM title AS t1
 JOIN (SELECT DISTINCT movie_keyword.movie_id FROM movie_keyword JOIN imdb.keyword ON keyword.id = movie_keyword.keyword_id 
 	WHERE keyword.id = 1149 OR keyword.id = 4232
 	OR keyword.id = 4671 OR keyword.id = 4672 OR keyword.id = 4669) AS t2
-ON t1.movie_id = t2.movie_id;")
+ON t1.id = t2.movie_id")
 ```
 
-```
 ```{r}
-#Selecting all movies made in the USA
-
 db2 <- dbConnect_scidb(dbname = "imdb")
 tbl_5 <- db2 %>%
   dbGetQuery("
@@ -78,7 +73,8 @@ tbl_3 %>%
             "num_terror_controlled" = num_terror_movies/total_num_movies)  %>%
   #Create our graphic
   ggplot(aes(x = production_year, y = num_terror_controlled)) + 
-  geom_line() +
+  geom_smooth() +
+  geom_point() +
   scale_x_continuous(breaks=seq(1900,2017,20)) +
   ggtitle("Percentage of Movies Tagged as 'Terrorist' from 1936-2016") +
   labs(x="Year",y="Percentage of Movies") +
