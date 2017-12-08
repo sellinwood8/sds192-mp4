@@ -31,7 +31,7 @@ JOIN (SELECT DISTINCT movie_keyword.movie_id FROM movie_keyword JOIN imdb.keywor
 ON t1.id = t2.movie_id;")
 ```
 
-```{r}
+```{r, warning = FALSE, message = FALSE}
 db2 <- dbConnect_scidb(dbname = "imdb")
 tbl_5 <- db2 %>%
   dbGetQuery("
@@ -39,7 +39,7 @@ tbl_5 <- db2 %>%
               where info = 'USA';")
 ```
 
-```{r}
+```{r, warning = FALSE, message = FALSE}
 #Joining all movies made in the USA that also have terrorist tags
 
 tbl_1 %>%
